@@ -19,6 +19,7 @@ urlpatterns = [
     # User management
     path("users/", include("simple_forum.users.urls", namespace="users")),
     path("accounts/", include("allauth.urls")),
+    path("forum/", include("themes.urls")),
     # Your stuff: custom urls includes go here
     # ...
     # Media files

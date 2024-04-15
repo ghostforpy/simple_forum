@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="col-2 offset-5 mt-5">
+            <h1 style="width: 6ch;">Forum</h1>
+    </div>
+    {% if user.is_superuser %}
+        <a class="btn btn-secondary mb-3" href="#" role="button">Add</a>
+    {% endif %}
+    
+
+
+
+    <div class="card mb-5">
+        <div class="card-header text-white bg-primary">
+          Важные темы
+        </div>
+        <div class="card-body">
+
+            {% for topic in important_topics %}
+            <div class="card">
+                <div class="card-header text-white bg-dark">
+                    {{topic.title}}
+                </div>
+                <div class="card-body">
+                    {{topic.description}}
+                    <a href="{% url 'topic-detail' topic.id %}" class="btn btn-success btn-sm">Просмотр</a>
+                </div>
+            </div>
+            {% empty%}
+                <p>К сожалению важных тем ещё нет.....</p>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="card">
+        <div class="card-header text-white bg-primary">
+          Обычные темы
+        </div>
+        <div class="card-body">
+            {% for topic in common_topics %}
+            <div class="card">
+                <div class="card-header text-white bg-dark">
+                    {{topic.title}}
+                </div>
+                <div class="card-body">
+                    {{topic.description}}
+                    <a href="{% url 'topic-detail' topic.id %}" class="btn btn-success btn-sm">Просмотр</a>
+                </div>
+            </div>
+            {% empty%}
+                К сожалению обычных тем ещё нет.....
+            {% endfor %}
+        </div>
+    </div>
+
+{% endblock content %} 

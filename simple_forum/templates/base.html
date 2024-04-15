@@ -71,9 +71,9 @@
         <a class="navbar-brand" href="{% url 'home' %}">Simple forum</a>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            {% comment %} <li class="nav-item active">
               <a class="nav-link" href="{% url 'home' %}">Home <span class="visually-hidden">(current)</span></a>
-            </li>
+            </li> {% endcomment %}
             {% comment %} <li class="nav-item">
               <a class="nav-link" href="{% url 'about' %}">About</a>
             </li> {% endcomment %}
@@ -82,6 +82,9 @@
                 <a class="nav-link"
                    href="{% url 'users:detail' request.user.username %}">{% translate "My Profile" %}</a>
               </li> {% endcomment %}
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'forum-index' %}">Forum</a>
+            </li>
               <li class="nav-item">
                 {# URL provided by django-allauth/account/urls.py #}
                 <a class="nav-link" href="{% url 'account_logout' %}">{% translate "Sign Out" %}</a>
@@ -117,7 +120,7 @@
     {% endif %}
     {% block main %}
       {% block content %}
-        <p>Use this document as a way to quick start any new project.</p>
+        <p>Выберите интересующий Вас раздел.</p>
       {% endblock content %}
     {% endblock main %}
 
