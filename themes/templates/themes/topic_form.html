@@ -1,10 +1,10 @@
-{% extends "themes/base.html" %}
+{% extends "base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
 
     <div class="row">
         <div class="col-2 offset-5 mt-5">
-            <h1 style="width: 9ch;">new topic</h1>
+            <h1 style="width: 9ch;">Новая тема</h1>
         </div>
     </div>
 
@@ -16,7 +16,7 @@
                     {{ form|crispy }}
                 </fieldset>
                 <div class="form-group">
-                    <button class="btn btn-outline-info" type="submit">Create</button>
+                    <button class="btn btn-outline-info" type="submit">Создать</button>
                 </div>
             </form>
         </div>

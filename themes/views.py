@@ -45,7 +45,7 @@ class TopicDetailView(DetailView):
 
 class TopicCreateView(LoginRequiredMixin, CreateView):
     model = Topic
-    fields = ["title", "description"]
+    fields = ["title", "description", "subsection"]
 
     def form_valid(self, form):
         return super().form_valid(form)

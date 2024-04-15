@@ -6,14 +6,14 @@ from django.urls import reverse
 class Topic(models.Model):
     """Topics contain posts"""
 
-    title = models.CharField(max_length=50)
+    title = models.CharField("Тема", max_length=50)
     subsection = models.CharField(
         "Подраздел",
         max_length=20,
         choices=[("important", "Важные темы"), ("common", "Обычные темы")],
         default="common",
     )
-    description = models.CharField(max_length=100)
+    description = models.CharField("Описание", max_length=100)
 
     def get_absolute_url(self):
         return reverse("topic-detail", kwargs={"pk": self.pk})
@@ -29,7 +29,7 @@ class Post(models.Model):
     topic = models.ForeignKey(Topic, on_delete=models.SET_NULL, null=True)
     timestamp = models.DateTimeField(default=timezone.now)
     title = models.CharField(max_length=50, default="untitled")
-    body = models.TextField()
+    body = models.TextField("Контент")
 
     def __str__(self):
         return self.title

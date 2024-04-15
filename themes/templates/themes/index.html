@@ -5,7 +5,7 @@
             <h1 style="width: 6ch;">Forum</h1>
     </div>
     {% if user.is_superuser %}
-        <a class="btn btn-secondary mb-3" href="#" role="button">Add</a>
+        <a class="btn btn-secondary mb-3" href="{% url 'topic-add' %}" role="button">Создать</a>
     {% endif %}
     
 
@@ -18,7 +18,7 @@
         <div class="card-body">
 
             {% for topic in important_topics %}
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header text-white bg-dark">
                     {{topic.title}}
                 </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="card-body">
             {% for topic in common_topics %}
-            <div class="card">
+            <div class="card mb-3">
                 <div class="card-header text-white bg-dark">
                     {{topic.title}}
                 </div>
