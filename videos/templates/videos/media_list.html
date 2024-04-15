@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+
+    <div class="col-2 offset-5 mt-5">
+            <h1 style="width: 6ch;">Video</h1>
+    </div>
+
+    <div class="row">
+        {% for video in medias %}
+        
+        
+        <div class="col-sm-4">
+            <div class="card">
+                <img class="card-img-top" src="{{video.pic.url}}" alt="Card image cap">
+
+
+              <div class="card-body">
+                <h5 class="card-title">{{video.title}}</h5>
+                {% comment %} <p class="card-text">With supporting text below as a natural lead-in to additional content.</p> {% endcomment %}
+                <a href="{{video.get_absolute_url}}" class="btn btn-primary btn-sm">Просмотр</a>
+
+              </div>
+              <div class="card-footer text-muted">
+                {{video.created}}
+            </div>
+            </div>
+          </div>
+        
+        {% empty %}
+        
+        
+        <p>К сожалению видео ещё нет.....</p>
+        
+        
+        {% endfor %}
+      </div>
+
+
+
+
+{% endblock content %} 
